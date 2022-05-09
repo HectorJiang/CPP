@@ -1,5 +1,6 @@
 # 不忽略目录，只上传
-!FileClient
-!FileServer
+# !/FileClient
+# !/FileServer
 
-!README.md
+# !README.md
+/build*
