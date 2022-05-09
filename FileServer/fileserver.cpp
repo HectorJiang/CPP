@@ -17,3 +17,15 @@ FileServer::~FileServer()
     delete ui;
 }
 
+//void FileServer::disconnect(){
+
+//}
+
+
+void FileServer::dataReceice(){
+
+}
+
+void FileServer::slotDisconnected(){
+
+}

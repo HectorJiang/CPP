@@ -1,22 +1,21 @@
-#ifndef CLIENT_H
-#define CLIENT_H
+#ifndef FILECLIENT_H
+#define FILECLIENT_H
 
 #include <QFile>
 #include <QMainWindow>
 #include <QTcpSocket>
 
-
 QT_BEGIN_NAMESPACE
-namespace Ui { class Client; }
+namespace Ui { class FileClient; }
 QT_END_NAMESPACE
 
-class Client : public QMainWindow
+class FileClient : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    Client(QWidget *parent = nullptr);
-    ~Client();
+    FileClient(QWidget *parent = nullptr);
+    ~FileClient();
 private slots:
     //连接服务器
     void connectServer();
@@ -29,9 +28,8 @@ private slots:
     void sendFile();
     void sendFileProgress();
 private:
-    Ui::Client *ui;
+    Ui::FileClient *ui;
     QTcpSocket *m_pTcpSocket;
     QFile *m_pFile;
-
 };
-#endif // CLIENT_H
+#endif // FILECLIENT_H
