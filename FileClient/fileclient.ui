@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>415</width>
+    <height>306</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,22 +17,22 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>190</y>
+      <x>30</x>
+      <y>20</y>
       <width>342</width>
       <height>217</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
+     <item row="2" column="0">
+      <widget class="QPushButton" name="m_pBtnSelectFile">
        <property name="text">
-        <string>服务器端口</string>
+        <string>选择上传文件</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="0" colspan="3">
-      <widget class="QProgressBar" name="progressBar">
+     <item row="5" column="0" colspan="3">
+      <widget class="QProgressBar" name="m_pProgressBar">
        <property name="maximum">
         <number>100</number>
        </property>
@@ -42,36 +42,36 @@
       </widget>
      </item>
      <item row="1" column="1" colspan="2">
-      <widget class="QLineEdit" name="lineEdit_2"/>
+      <widget class="QLineEdit" name="m_pLeServerPort"/>
      </item>
-     <item row="3" column="2">
-      <widget class="QPushButton" name="pushButton">
+     <item row="0" column="1" colspan="2">
+      <widget class="QLineEdit" name="m_pLeServerIp"/>
+     </item>
+     <item row="3" column="0" colspan="3">
+      <widget class="QPushButton" name="m_pBtnConnect">
        <property name="text">
         <string>连接</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1" colspan="2">
-      <widget class="QLineEdit" name="lineEdit"/>
+     <item row="2" column="1" colspan="2">
+      <widget class="QLineEdit" name="m_pLeFile"/>
      </item>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="m_pBtnSelectFile">
+     <item row="1" column="0">
+      <widget class="QLabel" name="m_pLbServerPort">
        <property name="text">
-        <string>选择上传文件</string>
+        <string>服务器端口</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1" colspan="2">
-      <widget class="QLineEdit" name="lineEdit_3"/>
-     </item>
      <item row="0" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="m_pLbServerIp">
        <property name="text">
         <string>服务器IP</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
+     <item row="4" column="0" colspan="3">
       <widget class="QPushButton" name="m_pBtnSendFile">
        <property name="text">
         <string>上传</string>
@@ -86,7 +86,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>415</width>
      <height>23</height>
     </rect>
    </property>

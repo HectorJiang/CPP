@@ -2,7 +2,9 @@
 #define FILESERVER_H
 
 #include <QMainWindow>
+#include <QTcpServer>
 #include <QTcpSocket>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class FileServer; }
@@ -15,15 +17,20 @@ class FileServer : public QMainWindow
 public:
     FileServer(QWidget *parent = nullptr);
     ~FileServer();
+    //输出日志到TextBrowser
+    void logToTextBrowser(QString strLevel, QString strContent);
 
-signals:
-    void disconnect(int);
-protected slots:
-    void dataReceice();
-    void slotDisconnected();
+private slots:
+    void acceptConnection();
+    //接收文件
+    void receiveFile();
+    //选择保存路径
+    void selectStorePath();
 
 private:
     Ui::FileServer *ui;
-    QTcpSocket *m_pTcpSocket;
+    QTcpSocket *m_pTcpSocketFile;
+    QTcpServer *m_pTcpServerFile;
+    QString m_strPathName;
 };
 #endif // FILESERVER_H
