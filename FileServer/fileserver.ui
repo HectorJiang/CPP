@@ -34,7 +34,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="m_pLeServerIp"/>
+        <widget class="QLineEdit" name="m_pLeServerIp">
+         <property name="text">
+          <string>127.0.0.1</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -48,7 +52,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="m_pLeServerPort"/>
+        <widget class="QLineEdit" name="m_pLeServerPort">
+         <property name="text">
+          <string>3454</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>

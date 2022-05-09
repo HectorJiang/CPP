@@ -26,7 +26,12 @@ private slots:
     void sendFile();
     //发送文件进度
     void sendFileProgress(qint64);
-
+    //发送测试信息
+    void sendTestMessage();
+    //建立链接成功
+    void connectSuccess();
+    //回复服务器
+    void replyServer();
 private:
     Ui::FileClient *ui;
 //    QTcpSocket *m_pTcpSocket;

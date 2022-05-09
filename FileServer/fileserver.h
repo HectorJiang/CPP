@@ -21,16 +21,23 @@ public:
     void logToTextBrowser(QString strLevel, QString strContent);
 
 private slots:
+    void listenSocket();
     void acceptConnection();
     //接收文件
     void receiveFile();
     //选择保存路径
     void selectStorePath();
 
+
 private:
     Ui::FileServer *ui;
-    QTcpSocket *m_pTcpSocketFile;
-    QTcpServer *m_pTcpServerFile;
-    QString m_strPathName;
+    QTcpSocket *m_pTcpSocketFile;//TcpSocket
+    QTcpServer *m_pTcpServerFile;//TcpServer
+    QString m_strPathName;//保存路径
+    QString m_strFileName;//文件名；
+    bool m_bhead;//是否是文件头
+    int  m_iFileSize;//接收文件的总大小
+    int m_iRecvSize;//当前接受文件的大小
+    QByteArray m_ByteArrayFileBuf;
 };
 #endif // FILESERVER_H
