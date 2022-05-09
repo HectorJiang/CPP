@@ -6,6 +6,10 @@ FileServer::FileServer(QWidget *parent)
     , ui(new Ui::FileServer)
 {
     ui->setupUi(this);
+    setWindowTitle(tr("File Server"));
+
+//    connect(ui, SIGNAL())
+
 }
 
 FileServer::~FileServer()
