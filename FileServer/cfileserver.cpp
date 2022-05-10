@@ -1,13 +1,13 @@
-#include "fileserver.h"
-#include "ui_fileserver.h"
+#include "cfileserver.h"
+#include "ui_cfileserver.h"
 
 #include <QDateTime>
 #include <QFileDialog>
 
 
-FileServer::FileServer(QWidget *parent)
+CFileServer::CFileServer(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::FileServer)
+    , ui(new Ui::CFileServer)
 {
     ui->setupUi(this);
     setWindowTitle(tr("File Server"));
@@ -18,16 +18,18 @@ FileServer::FileServer(QWidget *parent)
     //客户端连接时的槽函数
     connect(m_pTcpServerFile, SIGNAL(newConnection()), this, SLOT(acceptConnection()));
     connect(ui->m_pBtnStorePath, SIGNAL(clicked()), this, SLOT(selectStorePath()));
+    connect(ui->m_pBtnOpenGraph, SIGNAL(clicked()), this, SLOT(showGraph()));
+    connect(ui->m_pBtnOpenTable, SIGNAL(clicked()), this, SLOT(showTable()));
     logToTextBrowser("Info", "File Server Started");
 }
 
-FileServer::~FileServer()
+CFileServer::~CFileServer()
 {
     delete ui;
 }
 
 //输出日志
-void FileServer::logToTextBrowser(QString strLevel, QString strContent){
+void CFileServer::logToTextBrowser(QString strLevel, QString strContent){
     //设置输出信息格式
     QString strDateTime = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
     QString strResult = strLevel + ":" + strDateTime + ":" + strContent + "\n";
@@ -36,7 +38,7 @@ void FileServer::logToTextBrowser(QString strLevel, QString strContent){
 }
 
 //开启监听
-void FileServer::listenSocket(){
+void CFileServer::listenSocket(){
     QString strIp = ui->m_pLeServerIp->text();
     quint16 strPort = ui->m_pLeServerPort->text().toUShort();
     qDebug()<<strIp<<strPort;
@@ -46,7 +48,7 @@ void FileServer::listenSocket(){
     logToTextBrowser("Info", "Start listening");
 }
 //客户端连接时的槽函数
-void FileServer::acceptConnection(){
+void CFileServer::acceptConnection(){
     //输出客户端连接日志
     logToTextBrowser("Info", "Client connected");
     //获取和客户端通信的套接字
@@ -56,7 +58,7 @@ void FileServer::acceptConnection(){
 }
 
 //客户端有数据时的槽函数
-void FileServer::receiveFile(){
+void CFileServer::receiveFile(){
     //获取测试信息
     QByteArray buf = m_pTcpSocketFile->readAll();
     if(m_bhead){
@@ -83,7 +85,7 @@ void FileServer::receiveFile(){
 //        m_pFile->open(QIODevice::ReadWrite))
             QFile file(m_strPathName + '/' + m_strFileName);
             file.open(QIODevice::WriteOnly);
-            file.write(buf);
+            file.write(m_ByteArrayFileBuf);
             file.close();
             m_bhead = true;
         }
@@ -92,7 +94,7 @@ void FileServer::receiveFile(){
 }
 
 //选择保存路径
-void FileServer::selectStorePath(){
+void CFileServer::selectStorePath(){
     m_strPathName = QFileDialog::getExistingDirectory(this, "Choose store path", "../File");
     if(!m_strPathName.isEmpty()){
         ui->m_pLeStorePath->setText(m_strPathName);
@@ -100,3 +102,12 @@ void FileServer::selectStorePath(){
     }
 }
 
+void CFileServer::showGraph(){
+    CFileGraph *m_pFileGraph = new CFileGraph(this);
+    m_pFileGraph->show();
+}
+
+void CFileServer::showTable(){
+    CFileTable *m_pFileTable = new CFileTable(this);
+    m_pFileTable->show();
+}

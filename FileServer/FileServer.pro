@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,14 +16,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main.cpp \
-    fileserver.cpp
+    cfilegraph.cpp \
+    cfileserver.cpp \
+    cfiletable.cpp \
+    main.cpp
 
 HEADERS += \
-    fileserver.h
+    cfilegraph.h \
+    cfileserver.h \
+    cfiletable.h
 
 FORMS += \
-    fileserver.ui
+    cfilegraph.ui \
+    cfileserver.ui \
+    cfiletable.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
