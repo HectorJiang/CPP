@@ -3,14 +3,20 @@
 
 #include <QDateTime>
 #include <QFileDialog>
-
-
+#include <opencv2/opencv.hpp>
+using namespace cv;
 CFileServer::CFileServer(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::CFileServer)
 {
     ui->setupUi(this);
     setWindowTitle(tr("File Server"));
+    Mat src = imread("C:\\Users\\dell\\Desktop\\images.jpg");
+
+    Mat img;
+    cvtColor(src, img, COLOR_BGR2RGB);
+    ui->label->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888)));
+
     m_bhead = true;
     m_pTcpServerFile = new QTcpServer(this);
     //开启监听
@@ -22,6 +28,7 @@ CFileServer::CFileServer(QWidget *parent)
     connect(ui->m_pBtnOpenTable, SIGNAL(clicked()), this, SLOT(showTable()));
     logToTextBrowser("Info", "File Server Started");
 }
+
 
 CFileServer::~CFileServer()
 {

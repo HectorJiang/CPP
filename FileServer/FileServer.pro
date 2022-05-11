@@ -39,3 +39,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RC_FILE += logo.rc
 RC_ICONS += logo.ico
+
+INCLUDEPATH += C:\\ENV\\opencv\\build\\include
+INCLUDEPATH += C:\\ENV\\ffmpeg-4.4.2\\include
+
+LIBS += -LC:\\ENV\\ffmpeg-4.4.2\\lib -lavcodec -lavdevice -lavfilter -lavformat -lavutil -lswresample -lswscale
+LIBS += -LC:\\ENV\\opencv\\build\\x64\\vc15\\lib\\ -lopencv_world455d
+#LIBS += C:\ENV\opencv\build\x64\vc15\lib\opencv_world455
+
