@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/CPaint"/>
+    <qresource prefix="/">
+        <file>paint.db</file>
+    </qresource>
+</RCC>

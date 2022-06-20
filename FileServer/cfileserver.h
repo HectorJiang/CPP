@@ -35,7 +35,7 @@ private slots:
 private:
     Ui::CFileServer *ui;
     QTcpSocket *m_pTcpSocketFile;//TcpSocket
-    QTcpServer *m_pTcpServerFile;//TcpServer
+    std::shared_ptr<QTcpServer> *m_pTcpServerFile;//TcpServer
     QString m_strPathName;//保存路径
     QString m_strFileName;//文件名；
     bool m_bhead;//是否是文件头
