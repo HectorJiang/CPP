@@ -18,11 +18,12 @@ CFileServer::CFileServer(QWidget *parent)
     ui->label->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888)));
 
     m_bhead = true;
-    m_pTcpServerFile = new QTcpServer(this);
+    std::shared_ptr<QTcpServer> m_pTcpServerFile = std::make_shared<QTcpServer>(this);
+//    m_pTcpServerFile = new QTcpServer(this);
     //开启监听
     connect(ui->m_pBtnListen, SIGNAL(clicked()), this, SLOT(listenSocket()));
     //客户端连接时的槽函数
-    connect(m_pTcpServerFile, SIGNAL(newConnection()), this, SLOT(acceptConnection()));
+    connect((QObject *)m_pTcpServerFile), SIGNAL(newConnection()), this, SLOT(acceptConnection()));
     connect(ui->m_pBtnStorePath, SIGNAL(clicked()), this, SLOT(selectStorePath()));
     connect(ui->m_pBtnOpenGraph, SIGNAL(clicked()), this, SLOT(showGraph()));
     connect(ui->m_pBtnOpenTable, SIGNAL(clicked()), this, SLOT(showTable()));
@@ -32,6 +33,7 @@ CFileServer::CFileServer(QWidget *parent)
 
 CFileServer::~CFileServer()
 {
+    delete m_pTcpServerFile;
     delete ui;
 }
 

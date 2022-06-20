@@ -5,3 +5,6 @@
 # !README.md
 /build*
 /File
+x64
+GeneratedFiles
+.vs
