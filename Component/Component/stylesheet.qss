@@ -1,0 +1,24 @@
+QComboBox{
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    min-width: 220px;
+    min-height: 32px;
+    background-color: #FFFFFF;
+    padding-left: 14px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #86909C;
+    letter-spacing: 0;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+QComboBox:hover{
+    background: #F2F3F5;
+    border: 1px solid rgba(134,144,156,1);
+}
+
+QComboBox::down-down{
+    border: none;
+    background: none;
+}

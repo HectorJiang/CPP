@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ComboBoxClass</class>
+ <widget class="QWidget" name="ComboBoxClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ComboBox</string>
+  </property>
+  <widget class="QComboBox" name="m_pComboBox">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>160</y>
+     <width>69</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Item 1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Item 2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Item 3</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="combobox.qrc"/>
+ </resources>
+ <connections/>
+</ui>
