@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>style.qss</file>
+        <file>images/right.png</file>
+        <file>images/wrong.png</file>
+    </qresource>
+</RCC>
