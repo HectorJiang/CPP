@@ -50,6 +50,9 @@
     <QtMoc Include="CDbThread.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="cdb.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="cpaint.ui">
@@ -60,10 +63,5 @@
     <QtRcc Include="cpaint.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="cdb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
