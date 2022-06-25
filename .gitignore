@@ -3,8 +3,8 @@
 # !/FileServer
 
 # !README.md
-/build*
-/File
+build*
+File
 x64
 GeneratedFiles
 .vs

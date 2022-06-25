@@ -1,13 +1,21 @@
 #include "cdbthread.h"
-
+#include <QDebug>
 
 CDbThread::CDbThread()
 {
-	
+	m_Db = new CDb;
 }
 
+CDbThread::~CDbThread() {
+	delete m_Db;
+}
 
-//关闭按钮线程结束
 void CDbThread::run() {
-	
+	qDebug() << "subthread started";
+}
+
+void CDbThread::recMegFromMain(QString strPos, QString strEvent) {
+	qDebug() << "Subthread received message is:" << "pos:" << strPos << ",event:" << strEvent;
+	//插入数据库
+	m_Db->insertData(strPos, strEvent);
 }
