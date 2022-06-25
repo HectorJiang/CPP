@@ -1,0 +1,2 @@
+QLineEdit#m_pLeUsername:hover{border:2px solid blue;}
+QLineEdit#m_pLeUsername:focus{border:4px solid blue;}
