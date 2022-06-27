@@ -36,14 +36,23 @@
     <ClCompile Include="combobox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="citemview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="combobox.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="citemview.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="combobox.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="citemview.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
