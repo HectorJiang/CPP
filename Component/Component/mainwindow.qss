@@ -1,0 +1,11 @@
+QWidget#m_pComboBox{
+    width: 220px;
+    height: 32px;
+    background: #FFFFFF;
+    border: 1px solid rgba(134,144,156,1);
+}
+
+QWidget#widgetTag{
+    background: #315fbb;
+    border-radius: 1px;
+}
