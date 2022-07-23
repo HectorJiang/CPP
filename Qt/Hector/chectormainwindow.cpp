@@ -4,6 +4,9 @@
 #include <QMoveEvent>
 #include <QPixmap>
 #include <QImage>
+#include <QMessageBox>
+#include <QStringLiteral>
+#include <QGraphicsScene>
 
 CHectorMainWindow::CHectorMainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,6 +20,10 @@ CHectorMainWindow::CHectorMainWindow(QWidget *parent)
     m_pLbImg->setPixmap(QPixmap::fromImage(*img));
 //    m_ret = QRect(mapTo(this, this->geometry().topRight()+ QPoint(-85, 30)), QSize(85, 85));
     m_pLbImg->setGeometry(this->geometry().x()+this->width()-85, this->geometry().y()+30, 85, 85);
+
+    QGraphicsScene scene;
+    QGraphicsRectItem* pRectItem = scene.addRect(QRectF(0, 0, 100, 100));
+    QGraphicsItem *pItem = scene.itemAt(50, 50,QTransform());
 }
 
 CHectorMainWindow::~CHectorMainWindow()
