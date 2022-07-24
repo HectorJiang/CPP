@@ -1,5 +1,4 @@
 QT       += core gui
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -16,14 +15,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    copengl.cpp \
     main.cpp \
-    chectormainwindow.cpp
+    chectormainwindow.cpp \
+    glad.c
 
 HEADERS += \
-    chectormainwindow.h
+    chectormainwindow.h \
+    copengl.h
 
 FORMS += \
     chectormainwindow.ui
+
+INCLUDEPATH += D:\ENV\opencv-4.5.5\build\include
+INCLUDEPATH += D:\ENV\OpenGL\include
+
+LIBS += D:\ENV\opencv-4.5.5\build\x64\vc15\lib\opencv_world455.lib
+LIBS += D:\ENV\OpenGL\lib\glfw3.lib
+#LIBS += opengl32.lib
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

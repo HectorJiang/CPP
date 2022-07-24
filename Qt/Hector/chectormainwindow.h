@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QLabel>
+#include <QGraphicsScene>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CHectorMainWindow; }
@@ -21,8 +22,33 @@ protected:
     void moveEvent(QMoveEvent* event);
 
 private:
-    Ui::CHectorMainWindow *ui;
+    void initUI();
+    void createActions();
+    void showImage(QString strPath);
+
+
+private slots:
+    void openImage();
+    void zoomIn();
+
+private:
+//    Ui::CHectorMainWindow *ui;
     QLabel *m_pLbImg;
     QRect m_ret;
+    QMenu *m_pMenuFile;
+    QMenu *m_pMenuView;
+    QToolBar *m_pToolBarFile;
+    QToolBar *m_pToolBarView;
+
+    QAction *m_pActionOpen;
+    QAction *m_pActionExit;
+    QAction *m_pActionZoomIn;
+
+    QGraphicsScene *m_pSceneImage;
+    QGraphicsView *m_pViewImage;
+
+    QStatusBar *m_pStatusBarMain;
+    QLabel *m_pLbMainStatus;
+
 };
 #endif // CHECTORMAINWINDOW_H
